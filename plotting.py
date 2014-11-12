@@ -7,7 +7,7 @@ This is a temporary script file.
 import sqlite3 as lite
 import numpy as np
 import matplotlib.pyplot as plt
-con = lite.connect('.\AnonymousS2014Campus.sqlite')
+con = lite.connect('../AnonymousS2014Campus.sqlite')
 cur = con.cursor()
 cur.execute('''SELECT itemIndex, response FROM responses
                 WHERE url IN (SELECT DISTINCT url FROM experts

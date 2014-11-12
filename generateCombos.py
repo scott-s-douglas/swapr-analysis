@@ -5,7 +5,7 @@ import os.path
 import random
 from itertools import combinations
 
-con = lite.connect('.\AnonymousS2014Campus.sqlite')
+con = lite.connect('/Users/Scott/Research/2211 S2014/AnonymousS2014Campus.sqlite')
 cur = con.cursor()
 aList = []
 bList = []
