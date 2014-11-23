@@ -22,11 +22,16 @@ while len(bList) < 10000:
     cList = [];
     
 cur.execute('''CREATE TABLE IF NOT EXISTS groups (groupnum int, wID text)''')
-#for j in bList
-#    wid1 = str(x[0])
-#    cur.execute('''INSERT INTO groups
-#                    VALUES(?,?)''',
-#                    [bList.index,wid1]);
+groupnum = 0
+for x in bList:
+    count = 0
+    while count < len(x):
+        wid = str(x[count])
+        print(groupnum, wid)
+        cur.execute('''INSERT INTO groups VALUES(?, ?)''', [groupnum, wid])
+        count = count + 1
+    groupnum = groupnum + 1
+    
 
 print(len(data))
 print (len(aList))       
