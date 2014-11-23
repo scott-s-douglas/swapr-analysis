@@ -22,7 +22,7 @@ while len(bList) < 10000:
     cList = [];
     
 cur.execute('''CREATE TABLE IF NOT EXISTS groups (groupnum int, wID text)''')
-groupnum = 0
+groupnum = 1
 for x in bList:
     count = 0
     while count < len(x):
@@ -33,9 +33,9 @@ for x in bList:
     groupnum = groupnum + 1
     
 
-print(len(data))
-print (len(aList))       
-# print(bList)
-print(len(bList))
+#print(len(data))
+#print (len(aList))       
+#print(bList)
+#print(len(bList))
 
 con.commit()
