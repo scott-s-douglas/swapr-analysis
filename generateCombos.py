@@ -27,7 +27,7 @@ for x in bList:
     count = 0
     while count < len(x):
         wid = str(x[count])
-        print(groupnum, wid)
+        # print(groupnum, wid)
         cur.execute('''INSERT INTO groups VALUES(?, ?)''', [groupnum, wid])
         count = count + 1
     groupnum = groupnum + 1
@@ -35,7 +35,7 @@ for x in bList:
 
 print(len(data))
 print (len(aList))       
-print(bList)
+# print(bList)
 print(len(bList))
 
-
+con.commit()

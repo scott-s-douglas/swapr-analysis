@@ -3,6 +3,7 @@ import numpy as np
 import sqlite3 as lite
 import matplotlib.pyplot as plt
 from itertools import groupby
+import visual
 
 
 # matplotlib is confusing; it knows it's a library for an object-oriented language,
