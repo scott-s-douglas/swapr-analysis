@@ -27,22 +27,22 @@ import visual
 # That's just my little matplotlib rant, carry on.
 
 def ratingsPlot(data):
-	fig = plt.figure(figsize=(4*len(data),3))	# width is proportional to the number of items we're plotting
-	superTitle = 'Student Ratings by Lab, Video, & Rubric Item'
-	# fig.suptitle(superTitle,fontsize=10)
-	for i in range(len(data)):
-		ax = fig.add_subplot(1, len(data), i+1)
-		ax.hist(data[i],histtype='stepfilled',alpha=0.45,bins=np.arange(-0.5,5.5,1),normed=True)
-		ax.set_xticks(range(5))
-		ax.set_title('Item '+str(i+1))
-		ax.set_xticklabels(['P','F','G','VG','E'])
-		ax.set_yticks([0,0.25,0.5,0.75,1])
-		ax.set_yticklabels([])
-		ax.set_ylim([0,1])
-		ax.set_xlim([-0.5,4.5])
-		ax.yaxis.tick_right()
+    fig = plt.figure(figsize=(4*len(data),3))   # width is proportional to the number of items we're plotting
+    superTitle = 'Student Ratings by Lab, Video, & Rubric Item'
+    # fig.suptitle(superTitle,fontsize=10)
+    for i in range(len(data)):
+        ax = fig.add_subplot(1, len(data), i+1)
+        ax.hist(data[i],histtype='stepfilled',alpha=0.45,bins=np.arange(-0.5,5.5,1),normed=True)
+        ax.set_xticks(range(5))
+        ax.set_title('Item '+str(i+1))
+        ax.set_xticklabels(['P','F','G','VG','E'])
+        ax.set_yticks([0,0.25,0.5,0.75,1])
+        ax.set_yticklabels([])
+        ax.set_ylim([0,1])
+        ax.set_xlim([-0.5,4.5])
+        ax.yaxis.tick_right()
 
-	plt.show()
+    plt.show()
 
 con = lite.connect('../AnonymousS2014Campus.sqlite')
 cur = con.cursor()
@@ -57,12 +57,12 @@ cur.execute('''SELECT itemIndex, response FROM responses
                 ORDER BY itemIndex''')
 query = cur.fetchall()
 
-query = list(query)	# we cast our data (an iterable) into a list
+query = list(query) # we cast our data (an iterable) into a list
 # group the data such that we get a list of lists; one list per itemIndex, one entry per
 # response
 data=[]
 for itemIndex, responses in groupby(query, key=lambda x: x[0]):
-	data.append([int(response[1]) for response in responses])
+    data.append([int(response[1]) for response in responses])
 
 print(data)
 
